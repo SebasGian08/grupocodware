@@ -19,10 +19,11 @@
     {{-- Cómo trabajamos --}}
     @include('sections.steps')
 
-    {{-- Portafolio --}}
+    {{-- Contacto --}}
     @include('sections.contact')
 
     {{-- Testimonios --}}
     @include('sections.blog')
 
 @endsection
+

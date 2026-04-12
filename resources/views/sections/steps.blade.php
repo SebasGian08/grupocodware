@@ -1,5 +1,5 @@
 <!-- Steps Two -->
-<section class="steps-two" style="background-image:url({{ asset('assets/images/background/6.webp') }})">
+<section class="steps-two" style="background-color: #051e26 !important; padding: 60px 0;">
 
     <div class="steps-two_pattern" style="background-image:url({{ asset('assets/images/icons/service-23.webp') }})"></div>
     <div class="steps-two_pattern-three" style="background-image:url({{ asset('assets/images/background/pattern-41.webp') }})"></div>

@@ -445,7 +445,7 @@
 		$('.news-carousel').owlCarousel({
 			//animateOut: 'fadeOut',
     		//animateIn: 'fadeIn',
-			loop:true,
+			loop:false,
 			margin:0,
 			nav:true,
 			//autoHeight: true,

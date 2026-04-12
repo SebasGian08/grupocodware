@@ -32,18 +32,20 @@
                                 </div>
 
                                 <div class="email-box">
-                                    <form method="POST" action="">
+                                    <form method="POST" action="{{ route('subscribe.store') }}">
                                         @csrf
 
+                                        <!-- honeypot -->
                                         <input type="text" name="website" style="display:none">
 
                                         <div class="form-group">
-                                            <input type="email" name="email" placeholder="correo@ejemplo.com"
-                                                required>
+                                            <input type="email" name="email" placeholder="correo@ejemplo.com" required>
                                             <button type="submit">
                                                 <span class="fa-solid fa-paper-plane"></span>
                                             </button>
                                         </div>
+
+                                        <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
                                     </form>
                                 </div>
 
@@ -99,8 +101,7 @@
 </footer>
 
 <!-- BOTÓN WHATSAPP FLOTANTE -->
-<a href="https://wa.me/51912648531?text=Hola%20quiero%20más%20información"
-   class="whatsapp-float" target="_blank">
+<a href="https://wa.me/51912648531?text=Hola%20quiero%20más%20información" class="whatsapp-float" target="_blank">
 
     <i class="fab fa-whatsapp"></i>
 
@@ -113,81 +114,3 @@
     </div>
 
 </a>
-
-<style>
-
-/* =========================
-   BOTÓN WHATSAPP
-========================= */
-.whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #25D366;
-    color: white;
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    z-index: 999;
-    text-decoration: none;
-    animation: pulse 1.5s infinite;
-}
-
-/* =========================
-   BADGE ROJO
-========================= */
-.whatsapp-badge {
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    background: #ff2d2d;
-    color: #fff;
-    font-size: 11px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    border: 2px solid #fff;
-}
-
-/* =========================
-   MENSAJE PEQUEÑO
-========================= */
-.whatsapp-bubble {
-    position: absolute;
-    right: 70px;
-    bottom: 18px;
-    background: #fff;
-    color: #333;
-    font-weight: 400;
-    padding: 6px 10px;
-    border-radius: 10px;
-    font-size: 14px;
-    white-space: nowrap;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    border-left: 3px solid #25D366;
-    animation: floatBubble 2s ease-in-out infinite;
-}
-
-/* flechita */
-.whatsapp-bubble::after {
-    content: "";
-    position: absolute;
-    right: -5px;
-    bottom: 10px;
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid #fff;
-}
-
-</style>

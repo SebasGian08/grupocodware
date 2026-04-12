@@ -14,3 +14,7 @@
 <script src="{{ asset('assets/js/magnific-popup.min.js') }}"></script>
 
 <script src="{{ asset('assets/js/script.js') }}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>

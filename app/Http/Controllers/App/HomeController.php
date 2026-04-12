@@ -4,12 +4,20 @@ namespace App\Http\Controllers\App;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Service;
+use App\Models\Blog;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('pages.home');
+        $services = Service::where('estado', 1)->get();
+
+        $blogs = Blog::where('status', 1)
+                    ->orderBy('id_blog', 'desc')
+                    ->get();
+
+        return view('pages.home', compact('services', 'blogs'));
     }
 
     public function store(Request $request)

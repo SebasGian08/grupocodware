@@ -141,7 +141,7 @@
                                         <h4>{{ Auth::user()->nombres }} {{ Auth::user()->apellidos }}</h4>
                                         <p class="text-muted">{{ Auth::user()->email }}</p>
                                         <span
-                                            class="badge badge-primary">{{ Auth::user()->rol->nombre_rol ?? 'Sin Rol' }}</span>
+                                            class="badge badge-primary">{{ Auth::user()->rol->nombre ?? 'Sin Rol' }}</span>
                                         @else
                                         <h4>Usuario no identificado</h4>
                                         @endif

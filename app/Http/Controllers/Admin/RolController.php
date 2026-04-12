@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class Roleontroller extends Controller
+class RolController extends Controller
 {
     public function index()
     {
@@ -21,7 +21,6 @@ class Roleontroller extends Controller
 
     public function store(Request $request)
     {
-        // Lógica para guardar el rol
         return redirect()->route('admin.roles.index')->with('success', 'Rol creado.');
     }
 }

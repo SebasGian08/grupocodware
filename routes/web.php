@@ -3,11 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 
+/* WEB */
 use App\Http\Controllers\App\HomeController;
+use App\Http\Controllers\App\ContactController;
+use App\Http\Controllers\App\SubscriptionController;
+use App\Http\Controllers\App\BlogController;
+
+/* SISTEMA ADMIN */
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\UsuarioController;
 use App\Http\Controllers\Admin\RolController;
+
 
 App::setLocale('es');
 
@@ -17,8 +24,11 @@ App::setLocale('es');
 |--------------------------------------------------------------------------
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
-
+Route::get('/contacto', [ContactController::class, 'index']);
+Route::post('/contacto', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe.store');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 /*
 |--------------------------------------------------------------------------
 | ADMIN LOGIN
@@ -53,8 +63,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     // MÓDULO: ROLES
     Route::prefix('roles')->group(function () {
-        Route::get('/', [RoleController::class, 'index'])->name('admin.roles.index');
-        Route::get('/crear', [RoleController::class, 'create'])->name('admin.roles.create');
+        Route::get('/', [RolController::class, 'index'])->name('admin.roles.index');
+        Route::get('/crear', [RolController::class, 'create'])->name('admin.roles.create');
         Route::post('/guardar', [RolController::class, 'store'])->name('admin.roles.store');
     });
 });

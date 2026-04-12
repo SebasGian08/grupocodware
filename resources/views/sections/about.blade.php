@@ -101,7 +101,7 @@
                 <div class="cta-two_title">¡Contacta con un profesional ya!</div>
                 <!-- Button Box -->
                 <div class="cta-two_button-box">
-                    <a class="btn-style-seven theme-btn" href="https://wa.me/message/AH4NBZN4QOJXM1" target="_blank">
+                    <a class="btn-style-seven theme-btn" href="https://wa.me/message/AH4NBZN4QOJXM1" target="_blank"  style="background-color: rgb(37 211 102)">
                         <div class="btn-wrap">
                             <span class="text-one"><i class="fab fa-whatsapp"></i> Enviar Whatsapp</span>
                             <span class="text-two"><i class="fab fa-whatsapp"></i> Enviar Whatsapp</span>

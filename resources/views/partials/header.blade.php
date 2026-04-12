@@ -169,8 +169,10 @@
                         <div class="button-box">
                             <a class="btn-style-four theme-btn btn-item" href="#">
                                 <div class="btn-wrap">
-                                    <span class="text-one">Nuestra tienda virtual</span>
-                                    <span class="text-two">Nuestra tienda virtual</span>
+                                    <span class="text-one">Nuestra tienda virtual <i
+                                            class="fa-solid fa-arrow-right"></i></span>
+                                    <span class="text-two">Nuestra tienda virtual <i
+                                            class="fa-solid fa-arrow-right"></i></span>
                                 </div>
                             </a>
                         </div>

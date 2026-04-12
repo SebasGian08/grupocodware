@@ -6218,7 +6218,7 @@
 	border-radius:100px;
 	padding:25px 30px 20px;
 	background-position:center center;
-	background-color:var(--color-seventyone);
+	background-color: rgb(5 30 38);
 }
 
 .cta-two_inner-container:before{
@@ -6286,7 +6286,7 @@
 	right:0px;
 	bottom:0px;
 	opacity:0.93;
-	background-color:var(--color-seventytwo);
+	background-color: rgb(5 30 38);
 }
 
 .steps-two_pattern{
