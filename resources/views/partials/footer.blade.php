@@ -17,8 +17,8 @@
                                 </div>
 
                                 <div class="text" style="text-align: justify;">
-                                    Especialistas en Programación Web, Diseño Gráfico, Marketing Digital.
-                                    Desarrollamos soluciones digitales a medida para tu negocio.
+                                    Soluciones tecnológicas, desarrollo web y marketing digital para posicionar tu
+                                    negocio y atraer más clientes.
                                 </div>
                             </div>
                         </div>
