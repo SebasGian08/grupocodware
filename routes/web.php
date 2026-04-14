@@ -67,4 +67,12 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/crear', [RolController::class, 'create'])->name('admin.roles.create');
         Route::post('/guardar', [RolController::class, 'store'])->name('admin.roles.store');
     });
+
+    // MÓDULO: BLOG
+    Route::prefix('blogs')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\BlogController::class, 'index'])->name('admin.blogs.index');
+        Route::post('/guardar', [\App\Http\Controllers\Admin\BlogController::class, 'store'])->name('admin.blogs.store');
+        Route::put('/{blog}/actualizar', [\App\Http\Controllers\Admin\BlogController::class, 'update'])->name('admin.blogs.update');
+        Route::delete('/{blog}/eliminar', [\App\Http\Controllers\Admin\BlogController::class, 'destroy'])->name('admin.blogs.destroy');
+    });
 });

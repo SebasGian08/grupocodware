@@ -98,7 +98,7 @@
                     Sebastián Vasquez Wong
                     <i>Ingeniero de Sistemas e Informática</i>
                 </div>
-                <div class="cta-two_title">¡Contacta con un profesional ya!</div>
+                <div class="cta-two_title">¡Hablemos de tu proyecto!</div>
                 <!-- Button Box -->
                 <div class="cta-two_button-box">
                     <a class="btn-style-seven theme-btn" href="https://wa.me/message/AH4NBZN4QOJXM1" target="_blank"  style="background-color: rgb(37 211 102)">

@@ -53,6 +53,64 @@ $(document).ready(function() {
             }
         }
     });
+
+    $('.btn-delete').on('click', function(e) {
+        e.preventDefault();
+
+        let id = $(this).data('id');
+        let name = $(this).data('name');
+        let form = '#delete-form-' + id;
+
+        Swal.fire({
+            title: '¿Eliminar blog?',
+            text: name,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(form).submit();
+            }
+        });
+    });
 });
 </script>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
+@push('scripts')
+
+@if(session('success'))
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    Swal.fire({
+        title: '¡Correcto!',
+        text: @json(session('success')),
+        icon: 'success',
+        timer: 2500,
+        showConfirmButton: false
+    });
+});
+</script>
+@endif
+
+@if(session('delete'))
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    Swal.fire({
+        title: 'Eliminado',
+        text: @json(session('delete')),
+        icon: 'success',
+        timer: 2500,
+        showConfirmButton: false
+    });
+});
+</script>
+@endif
+
+
+@endpush
 @stack('scripts')

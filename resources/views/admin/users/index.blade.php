@@ -105,44 +105,4 @@
 @push('scripts')
 
 
-<script>
-$(document).ready(function() {
-    $('.btn-delete').on('click', function(e) {
-        e.preventDefault();
-
-        let userId = $(this).data('id');
-        let userName = $(this).data('name');
-        let formId = '#delete-form-' + userId;
-
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: "¡Esta acción no se puede deshacer!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: '<i class="fa fa-trash"></i> Sí, eliminar',
-            cancelButtonText: 'Cancelar',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $(formId).submit();
-            }
-        });
-    });
-});
-</script>
-
-{{-- Notificación de éxito al eliminar --}}
-@if(session('delete'))
-<script>
-Swal.fire({
-    title: '¡Eliminado!',
-    text: '{{ session("delete") }}',
-    icon: 'success',
-    timer: 3000,
-    showConfirmButton: false
-});
-</script>
-@endif
 @endpush
