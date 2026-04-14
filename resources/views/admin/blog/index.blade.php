@@ -5,15 +5,36 @@
 @section('content')
 
 <div class="page-inner">
+    <div class="page-header d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+            <h4 class="page-title">Gestión de Blogs</h4>
+            <ul class="breadcrumbs">
+                <li class="nav-home">
+                    <a href="{{ route('admin.dashboard') }}">
+                        <i class="icon-home"></i>
+                    </a>
+                </li>
+                <li class="separator">
+                    <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.blogs.index') }}">Blogs</a>
+                </li>
+                <li class="separator">
+                    <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                    <a>Listado</a>
+                </li>
+            </ul>
+        </div>
 
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4 class="page-title">Gestión de Blog</h4>
-
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCreate">
-            <i class="fa fa-plus"></i> Nuevo Blog
-        </button>
+        <div class="ms-md-auto py-2 py-md-0">
+            <button class="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#modalCreate">
+                <i class="fa fa-plus"></i> Nuevo Usuario
+            </button>
+        </div>
     </div>
-
     <div class="card">
         <div class="card-body">
 

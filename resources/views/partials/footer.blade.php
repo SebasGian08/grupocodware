@@ -5,7 +5,7 @@
         <div class="widgets-section">
             <div class="row clearfix">
 
-                <div class="big-column col-lg-8 col-md-12 col-sm-12">
+                <div class="big-column col-lg-6 col-md-12 col-sm-12">
                     <div class="row clearfix">
 
                         <div class="footer-column col-lg-6 col-md-6 col-sm-12">
@@ -40,15 +40,19 @@
 
                                         <div class="form-group">
                                             <input type="email" name="email" placeholder="correo@ejemplo.com" required>
+
                                             <button type="submit">
                                                 <span class="fa-solid fa-paper-plane"></span>
                                             </button>
                                         </div>
 
-                                        <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                                        <!-- reCAPTCHA centrado -->
+                                        <div class="recaptcha-wrapper">
+                                            <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}">
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
-
 
                                 <ul class="social-box">
                                     <li><a href="https://www.facebook.com/Codwareoficial" target="_blank"
@@ -65,10 +69,24 @@
                     </div>
                 </div>
 
-                <div class="big-column col-lg-4 col-md-12 col-sm-12">
+                <div class="big-column col-lg-6 col-md-12 col-sm-12">
                     <div class="row clearfix">
+                        <div class="footer-widget links-widget col-lg-6 col-md-6 col-sm-12">
 
-                        <div class="footer-column col-lg-12 col-md-6 col-sm-12">
+                            <h4>Servicios</h4>
+
+                            <ul class="list-link">
+                                @foreach($servicesMenu as $service)
+                                <li>
+                                    <a href="{{ route('services.show', $service->slug) }}">
+                                       <i class="fas fa-angle-right"></i> {{ $service->nombre }}
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
+
+                        </div>
+                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
                             <div class="footer-widget contact-widget">
                                 <h4>Información</h4>
 

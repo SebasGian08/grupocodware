@@ -27,28 +27,17 @@
                                 <li><a href="{{ route('home') }}">Inicio</a></li>
 
                                 <li class="dropdown">
-                                    <a href="#">Servicios</a>
+                                    <a href="{{ route('services.index') }}">Servicios</a>
                                     <ul>
-                                        <li><a href="#">Página Web</a></li>
-                                        <li><a href="#">Tienda Virtual</a></li>
-                                        <li><a href="#">Marketing</a></li>
-                                        <li><a href="#">Facturación Electrónica</a></li>
+                                        @foreach($servicesMenu as $service)
+                                        <li>
+                                            <a href="{{ route('services.show', $service->slug) }}">
+                                                {{ $service->nombre }}
+                                            </a>
+                                        </li>
+                                        @endforeach
                                     </ul>
                                 </li>
-
-                                <!-- <li class="dropdown">
-                                        <a href="#">Soluciones</a>
-                                        <ul>
-                                            <li><a href="#">Sistema de citas médicas</a></li>
-                                            <li><a href="#">Sistema de asistencia</a></li>
-                                            <li>
-                                                <a href="https://demo.erpgrupocodware.com/login" target="_blank">
-                                                    Facturación Electrónica
-                                                </a>
-                                            </li>
-                                            <li><a href="#">Sistema de reservas - Hotel</a></li>
-                                        </ul>
-                                    </li> -->
 
                                 <li><a href="#">Portafolio</a></li>
                                 <li><a href="#">Contacto</a></li>
@@ -98,7 +87,6 @@
         </div>
     </div>
 
-    {{-- STICKY HEADER --}}
     <div class="sticky-header">
         <div class="auto-container">
             <div class="d-flex justify-content-between align-items-center">
@@ -130,12 +118,15 @@
                                     <li><a href="{{ route('home') }}">Inicio</a></li>
 
                                     <li class="dropdown">
-                                        <a href="#">Servicios</a>
+                                        <a href="{{ route('services.index') }}">Servicios</a>
                                         <ul>
-                                            <li><a href="#">Página Web</a></li>
-                                            <li><a href="#">Tienda Virtual</a></li>
-                                            <li><a href="#">Marketing</a></li>
-                                            <li><a href="#">Facturación Electrónica</a></li>
+                                            @foreach($servicesMenu as $service)
+                                            <li>
+                                                <a href="{{ route('services.show', $service->slug) }}">
+                                                    {{ $service->nombre }}
+                                                </a>
+                                            </li>
+                                            @endforeach
                                         </ul>
                                     </li>
 

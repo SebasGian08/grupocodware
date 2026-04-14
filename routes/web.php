@@ -8,6 +8,7 @@ use App\Http\Controllers\App\HomeController;
 use App\Http\Controllers\App\ContactController;
 use App\Http\Controllers\App\SubscriptionController;
 use App\Http\Controllers\App\BlogController;
+use App\Http\Controllers\App\ServiceController;
 
 /* SISTEMA ADMIN */
 use App\Http\Controllers\Admin\DashboardController;
@@ -29,6 +30,8 @@ Route::post('/contacto', [ContactController::class, 'store'])->name('contact.sto
 Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe.store');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/servicios', [ServiceController::class, 'index'])->name('services.index');
+Route::get('/servicios/{slug}', [ServiceController::class, 'show'])->name('services.show');
 /*
 |--------------------------------------------------------------------------
 | ADMIN LOGIN

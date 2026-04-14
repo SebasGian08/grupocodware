@@ -68,7 +68,7 @@
                 <!-- BLOG -->
                 <li class="nav-item {{ Request::is('admin/blogs*') ? 'active' : '' }}">
                     <a href="{{ route('admin.blogs.index') }}">
-                        <i class="fas fa-blog"></i>
+                        <i class="fas fa-newspaper"></i>
                         <p>Blog</p>
                     </a>
                 </li>

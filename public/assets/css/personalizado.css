@@ -275,4 +275,58 @@
     border-bottom: 5px solid transparent;
     border-left: 5px solid #fff;
 }
+
+.list-link li a {
+    color: #fff;
+    opacity: .8;
+    transition: .3s;
+}
+
+.list-link li a:hover {
+    opacity: 1;
+    padding-left: 5px;
+}
+
+.email-box .form-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.email-box input[type="email"] {
+    flex: 1;
+    height: 45px;
+    padding: 0 12px;
+    border-radius: 6px;
+}
+
+.email-box button {
+    height: 45px;
+    width: 50px;
+    border: none;
+    background: #1e73ff;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.recaptcha-wrapper {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    transform: scale(0.85);
+    transform-origin: center;
+}
 /* FIN */
+
+/* precios */
+.original-price {
+    text-decoration: line-through;
+    color: #cecece;
+    margin-right: 5px;
+}
+
+.price {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

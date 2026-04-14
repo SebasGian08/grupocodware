@@ -109,8 +109,8 @@
                         <div class="col-lg-12 text-center mt-3">
                             <button class="theme-btn btn-style-seven">
                                 <span class="btn-wrap">
-                                    <span class="text-one">Enviar</span>
-                                    <span class="text-two">Enviar</span>
+                                    <span class="text-one"><i class="fas fa-paper-plane me-2"></i> Enviar</span>
+                                    <span class="text-two"><i class="fas fa-paper-plane me-2"></i> Enviar</span>
                                 </span>
                             </button>
                         </div>

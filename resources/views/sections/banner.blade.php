@@ -17,8 +17,12 @@
                     <div class="col-lg-12 text-center mt-3">
                         <button class="theme-btn btn-style-seven">
                             <span class="btn-wrap">
-                                <span class="text-one">Cotiza ahora</span>
-                                <span class="text-two">Cotiza ahora</span>
+                                <span class="text-one">
+                                    <i class="fas fa-paper-plane"></i> Cotiza ahora
+                                </span>
+                                <span class="text-two">
+                                    <i class="fas fa-paper-plane"></i> Cotiza ahora
+                                </span>
                             </span>
                         </button>
                     </div>
@@ -45,8 +49,12 @@
                     <div class="col-lg-12 text-center mt-3">
                         <button class="theme-btn btn-style-seven">
                             <span class="btn-wrap">
-                                <span class="text-one">Solicitar demo</span>
-                                <span class="text-two">Solicitar demo</span>
+                                <span class="text-one">
+                                    <i class="fas fa-laptop-code" style="margin-right:8px;"></i> Solicitar demo
+                                </span>
+                                <span class="text-two">
+                                    <i class="fas fa-laptop-code" style="margin-right:8px;"></i> Solicitar demo
+                                </span>
                             </span>
                         </button>
                     </div>
@@ -73,8 +81,8 @@
                     <div class="col-lg-12 text-center mt-3">
                         <button class="theme-btn btn-style-seven">
                             <span class="btn-wrap">
-                                <span class="text-one">Saber más</span>
-                                <span class="text-two">Saber más</span>
+                                <span class="text-one">Saber más <i class="fas fa-arrow-right" style="margin-right:8px;"></i></span>
+                                <span class="text-two">Saber más <i class="fas fa-arrow-right" style="margin-right:8px;"></i></span>
                             </span>
                         </button>
                     </div>
