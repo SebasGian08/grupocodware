@@ -19,3 +19,6 @@
 
 <!-- Estilo principal (el más importante) -->
 <link rel="stylesheet" href="{{ asset('admin/assets/css/kaiadmin.min.css') }}">
+
+<!-- Favicon -->
+<link rel="icon" href="{{ asset('assets/images/favicon.png') }}">

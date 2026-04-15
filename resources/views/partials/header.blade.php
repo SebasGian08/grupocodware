@@ -5,7 +5,7 @@
 
                 <div class="logo">
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset('assets/images/logo-2.webp') }}" alt="CODWARE">
+                        <img src="{{ asset('assets/images/logo-principal.png') }}" alt="CODWARE">
                     </a>
                 </div>
 
@@ -93,7 +93,7 @@
 
                 <div class="logo">
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset('assets/images/logo.webp') }}" alt="CODWARE">
+                        <img src="{{ asset('assets/images/logo-principal.png') }}" alt="CODWARE">
                     </a>
                 </div>
 

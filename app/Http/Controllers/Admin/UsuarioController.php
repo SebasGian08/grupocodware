@@ -68,14 +68,14 @@ class UsuarioController extends Controller
 
     public function destroy($id)
     {
-        $user = Usuario::findOrFail($id);
+        $service = Service::findOrFail($id);
 
-        $user->deleted_by = Auth::id();
-        $user->save(); 
+        $service->deleted_by = Auth::id();
+        $service->save();
 
-        $user->delete();
+        $service->delete();
 
-        return redirect()->route('admin.users.index')
-            ->with('delete', 'Usuario inhabilitado correctamente.');
+        return redirect()->route('admin.servicios.index')->with('delete', 'Servicio inhabilitado correctamente.');
     }
+
 }

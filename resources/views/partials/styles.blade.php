@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <title>Grupo Codware - Facturación Electrónica, Sistemas y Desarrollo Web</title>
 
 <meta name="description" content="Desarrollamos sistemas de facturación electrónica, páginas web, ERP, CRM y software a medida para empresas en Perú. Impulsa tu negocio con soluciones digitales modernas.">

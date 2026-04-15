@@ -23,18 +23,13 @@ class Service extends Model
         return $this->hasMany(Contact::class, 'id_service');
     }
 
-    public function plans()
-    {
-        return $this->hasMany(ServicePlan::class, 'service_id');
-    }
-
     public function benefits()
     {
-        return $this->hasMany(ServiceBenefit::class, 'service_id');
+        return $this->hasMany(ServiceBenefit::class, 'service_id', 'id_service');
     }
 
-    public function features()
+    public function plans()
     {
-        return $this->hasMany(ServicePlanFeature::class, 'plan_id');
+        return $this->hasMany(ServicePlan::class, 'service_id', 'id_service');
     }
 }

@@ -15,7 +15,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\UsuarioController;
 use App\Http\Controllers\Admin\RolController;
-
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 
 App::setLocale('es');
 
@@ -73,9 +74,17 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     // MÓDULO: BLOG
     Route::prefix('blogs')->group(function () {
-        Route::get('/', [\App\Http\Controllers\Admin\BlogController::class, 'index'])->name('admin.blogs.index');
-        Route::post('/guardar', [\App\Http\Controllers\Admin\BlogController::class, 'store'])->name('admin.blogs.store');
-        Route::put('/{blog}/actualizar', [\App\Http\Controllers\Admin\BlogController::class, 'update'])->name('admin.blogs.update');
-        Route::delete('/{blog}/eliminar', [\App\Http\Controllers\Admin\BlogController::class, 'destroy'])->name('admin.blogs.destroy');
+        Route::get('/', [AdminBlogController::class, 'index'])->name('admin.blogs.index');
+        Route::post('/guardar', [AdminBlogController::class, 'store'])->name('admin.blogs.store');
+        Route::put('/{blog}/actualizar', [AdminBlogController::class, 'update'])->name('admin.blogs.update');
+        Route::delete('/{blog}/eliminar', [AdminBlogController::class, 'destroy'])->name('admin.blogs.destroy');
+    });
+
+    // MÓDULO: SERVICIOS
+    Route::prefix('servicios')->group(function () {
+        Route::get('/', [AdminServiceController::class, 'index'])->name('admin.servicios.index');
+        Route::post('/guardar', [AdminServiceController::class, 'store'])->name('admin.servicios.store');
+        Route::put('/{service}/actualizar', [AdminServiceController::class, 'update'])->name('admin.servicios.update');
+        Route::delete('/{service}/eliminar', [AdminServiceController::class, 'destroy'])->name('admin.servicios.destroy');
     });
 });

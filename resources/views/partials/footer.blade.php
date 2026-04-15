@@ -12,7 +12,7 @@
                             <div class="footer-widget logo-widget">
                                 <div class="logo">
                                     <a href="{{ route('home') }}">
-                                        <img src="{{ asset('assets/images/footer-logo.webp') }}" alt="CODWARE" />
+                                        <img src="{{ asset('assets/images/logo-principal-white.png') }}" alt="CODWARE" />
                                     </a>
                                 </div>
 

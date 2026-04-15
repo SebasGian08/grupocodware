@@ -2,9 +2,8 @@
     <div class="sidebar-logo">
         <div class="logo-header" data-background-color="dark">
             <a href="{{ route('admin.dashboard') }}" class="logo">
-                <img src="{{ asset('assets/img/kaiadmin/logo_light.svg') }}" 
-                     alt="navbar brand" 
-                     class="navbar-brand" height="20" />
+                <img src="{{ asset('assets/images/logo-principal-white.png') }}" alt="navbar brand" class="navbar-brand"
+                    height="20" />
             </a>
 
             <div class="nav-toggle">
@@ -70,6 +69,13 @@
                     <a href="{{ route('admin.blogs.index') }}">
                         <i class="fas fa-newspaper"></i>
                         <p>Blog</p>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ Request::is('admin/servicios*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.servicios.index') }}">
+                        <i class="fas fa-concierge-bell"></i>
+                        <p>Servicios</p>
                     </a>
                 </li>
 
