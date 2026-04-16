@@ -7,7 +7,28 @@
 <div class="page-inner">
 
     <div class="page-header d-flex justify-content-between align-items-center">
-        <h4 class="page-title">Servicios</h4>
+        <div class="d-flex align-items-center">
+            <h4 class="page-title">Gestión de Servicios</h4>
+            <ul class="breadcrumbs">
+                <li class="nav-home">
+                    <a href="{{ route('admin.dashboard') }}">
+                        <i class="icon-home"></i>
+                    </a>
+                </li>
+                <li class="separator">
+                    <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.servicios.index') }}">Servicios</a>
+                </li>
+                <li class="separator">
+                    <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                    <a>Listado</a>
+                </li>
+            </ul>
+        </div>
 
         <button class="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#modalCreate">
             <i class="fa fa-plus"></i> Nuevo Servicio
@@ -18,7 +39,7 @@
         <div class="card-body">
 
             <div class="table-responsive">
-                <table class="table table-striped table-hover">
+                <table class="table table-striped table-hover" id="basic-datatables">
 
                     <thead>
                         <tr>
@@ -43,9 +64,9 @@
                             <td>{{ $service->created_at ? $service->created_at->format('d/m/Y') : '-' }}</td>
 
                             <td>
-                                <button class="btn btn-primary btn-border btn-round" data-bs-toggle="modal"
+                                <button class="btn btn-sm mt-2 btn-primary btn-border btn-round" data-bs-toggle="modal"
                                     data-bs-target="#edit{{ $service->id_service }}">
-                                    <i class="fa fa-edit"></i> Editar
+                                    <i class="fa fa-edit"></i>
                                 </button>
 
                                 <form action="{{ route('admin.servicios.destroy', $service->id_service) }}"
@@ -53,8 +74,8 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <button class="btn btn-danger btn-border btn-round">
-                                        <i class="fa fa-trash"></i> Eliminar
+                                    <button class="btn btn-sm mt-2 btn-danger btn-border btn-round">
+                                        <i class="fa fa-trash"></i>
                                     </button>
                                 </form>
                             </td>

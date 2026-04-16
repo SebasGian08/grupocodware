@@ -14,7 +14,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('pages.home', [
+        return view('pages.contacto.show', [
             'services' => Service::where('estado', 1)->get(),
             'sources' => ContactSource::where('estado', 1)->get(),
             'priorities' => Priority::all(),

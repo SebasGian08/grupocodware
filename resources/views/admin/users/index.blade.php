@@ -62,9 +62,9 @@
                                     <td><span class="badge badge-info">{{ $user->rol->nombre ?? 'NO HAY' }}</span></td>
                                     <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
                                     <td>
-                                        <button class="btn btn-primary btn-border btn-round" data-bs-toggle="modal"
+                                        <button class="btn btn-sm mt-2 btn-primary btn-border btn-round" data-bs-toggle="modal"
                                             data-bs-target="#modalEdit{{ $user->id_usuario }}">
-                                            <i class="fa fa-edit"></i> Editar
+                                            <i class="fa fa-edit"></i>
                                         </button>
 
                                         <form action="{{ route('admin.users.destroy', $user->id_usuario) }}"
@@ -72,10 +72,10 @@
                                             style="display:inline;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="button" class="btn btn-danger btn-border btn-round btn-delete"
+                                            <button type="button" class="btn btn-sm mt-2 btn-danger btn-border btn-round btn-delete"
                                                 data-id="{{ $user->id_usuario }}"
                                                 data-name="{{ $user->nombres }} {{ $user->apellidos }}">
-                                                <i class="fa fa-trash"></i> Eliminar
+                                                <i class="fa fa-trash"></i>
                                             </button>
                                         </form>
                                     </td>

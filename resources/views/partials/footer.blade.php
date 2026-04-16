@@ -1,5 +1,6 @@
 <!-- Footer -->
-<footer class="main-footer" style="background-image:url({{ asset('assets/images/background/pattern-11.webp') }})">
+<footer class="main-footer"
+    style="background-image:url({{ asset('assets/images/background/pattern-11.webp') }});background-color: rgb(5 30 38);">
     <div class="auto-container">
 
         <div class="widgets-section">
@@ -12,7 +13,8 @@
                             <div class="footer-widget logo-widget">
                                 <div class="logo">
                                     <a href="{{ route('home') }}">
-                                        <img src="{{ asset('assets/images/logo-principal-white.png') }}" alt="CODWARE" />
+                                        <img src="{{ asset('assets/images/logo-principal-white.png') }}"
+                                            alt="CODWARE" />
                                     </a>
                                 </div>
 
@@ -79,7 +81,7 @@
                                 @foreach($servicesMenu as $service)
                                 <li>
                                     <a href="{{ route('services.show', $service->slug) }}">
-                                       <i class="fas fa-angle-right"></i> {{ $service->nombre }}
+                                        <i class="fas fa-angle-right"></i> {{ $service->nombre }}
                                     </a>
                                 </li>
                                 @endforeach

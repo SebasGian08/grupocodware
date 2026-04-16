@@ -26,13 +26,14 @@ App::setLocale('es');
 |--------------------------------------------------------------------------
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/contacto', [ContactController::class, 'index']);
+Route::get('/contacto', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contacto', [ContactController::class, 'store'])->name('contact.store');
 Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe.store');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/servicios', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/servicios/{slug}', [ServiceController::class, 'show'])->name('services.show');
+Route::get('/mantenimiento', function () {return view('pages.errors.mantenimiento');})->name('mantenimiento');
 /*
 |--------------------------------------------------------------------------
 | ADMIN LOGIN

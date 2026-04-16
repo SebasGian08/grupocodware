@@ -15,7 +15,8 @@
                         Impulsa tu negocio, aumenta tus ventas y posiciona tu marca en internet.
                     </div>
                     <div class="col-lg-12 text-center mt-3">
-                        <button class="theme-btn btn-style-seven">
+                        <a href="https://wa.me/message/AH4NBZN4QOJXM1" target="_blank"
+                            class="theme-btn btn-style-seven">
                             <span class="btn-wrap">
                                 <span class="text-one">
                                     <i class="fas fa-paper-plane"></i> Cotiza ahora
@@ -24,7 +25,7 @@
                                     <i class="fas fa-paper-plane"></i> Cotiza ahora
                                 </span>
                             </span>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -47,7 +48,8 @@
                         Emite comprobantes electrónicos y controla tu facturación sin complicaciones.
                     </div>
                     <div class="col-lg-12 text-center mt-3">
-                        <button class="theme-btn btn-style-seven">
+                        <a href="https://wa.me/message/AH4NBZN4QOJXM1" target="_blank"
+                            class="theme-btn btn-style-seven">
                             <span class="btn-wrap">
                                 <span class="text-one">
                                     <i class="fas fa-laptop-code" style="margin-right:8px;"></i> Solicitar demo
@@ -56,7 +58,7 @@
                                     <i class="fas fa-laptop-code" style="margin-right:8px;"></i> Solicitar demo
                                 </span>
                             </span>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -79,12 +81,17 @@
                         Diseñamos sitios modernos, rápidos y optimizados para convertir visitas en clientes.
                     </div>
                     <div class="col-lg-12 text-center mt-3">
-                        <button class="theme-btn btn-style-seven">
+                        <a href="https://wa.me/message/AH4NBZN4QOJXM1" target="_blank"
+                            class="theme-btn btn-style-seven">
                             <span class="btn-wrap">
-                                <span class="text-one">Saber más <i class="fas fa-arrow-right" style="margin-right:8px;"></i></span>
-                                <span class="text-two">Saber más <i class="fas fa-arrow-right" style="margin-right:8px;"></i></span>
+                                <span class="text-one">
+                                    Saber más <i class="fas fa-arrow-right" style="margin-right:8px;"></i>
+                                </span>
+                                <span class="text-two">
+                                    Saber más <i class="fas fa-arrow-right" style="margin-right:8px;"></i>
+                                </span>
                             </span>
-                        </button>
+                        </a>
                     </div>
                 </div>
 

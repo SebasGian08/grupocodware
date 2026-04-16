@@ -39,8 +39,8 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="#">Portafolio</a></li>
-                                <li><a href="#">Contacto</a></li>
+                                <li><a href="{{ route('mantenimiento') }}">Portafolio</a></li>
+                                <li><a href="{{ route('contact.index') }}">Contacto</a></li>
 
                             </ul>
                         </div>
@@ -63,16 +63,12 @@
                             </li>
                         </ul>
 
-                        <div class="button-box">
-                            <a class="btn-style-four theme-btn btn-item" href="#">
-                                <div class="btn-wrap">
-                                    <span class="text-one">
-                                        Nuestra tienda virtual <i class="fa-solid fa-arrow-right"></i>
-                                    </span>
-                                    <span class="text-two">
-                                        Nuestra tienda virtual <i class="fa-solid fa-arrow-right"></i>
-                                    </span>
-                                </div>
+                        <div class="button-box" style="display:flex; gap:12px; flex-wrap:wrap;">
+                            <a class="btn-cotizar" href="{{ route('admin.login') }}" target="_blank">
+                                <i class="fa-solid fa-user"></i> Panel Clientes
+                            </a>
+                            <a class="btn-tienda" href="{{ route('mantenimiento') }}" target="_blank">
+                                <i class="fa-solid fa-store"></i> Tienda virtual 
                             </a>
                         </div>
 
@@ -144,8 +140,8 @@
                                         </ul>
                                     </li> -->
 
-                                    <li><a href="#">Portafolio</a></li>
-                                    <li><a href="#">Contacto</a></li>
+                                    <li><a href="{{ route('mantenimiento') }}">Portafolio</a></li>
+                                    <li><a href="{{ route('contact.index') }}">Contacto</a></li>
 
                                 </ul>
                             </div>
@@ -157,17 +153,14 @@
                             <li><a href="#" class="fa-brands fa-linkedin"></a></li>
                         </ul>
 
-                        <div class="button-box">
-                            <a class="btn-style-four theme-btn btn-item" href="#">
-                                <div class="btn-wrap">
-                                    <span class="text-one">Nuestra tienda virtual <i
-                                            class="fa-solid fa-arrow-right"></i></span>
-                                    <span class="text-two">Nuestra tienda virtual <i
-                                            class="fa-solid fa-arrow-right"></i></span>
-                                </div>
+                        <div class="button-box" style="display:flex; gap:12px; flex-wrap:wrap;">
+                            <a class="btn-cotizar" href="{{ route('admin.login') }}" target="_blank">
+                                <i class="fa-solid fa-user"></i> Panel Clientes
+                            </a>
+                            <a class="btn-tienda" href="{{ route('mantenimiento') }}" target="_blank">
+                                <i class="fa-solid fa-store"></i> Tienda virtual
                             </a>
                         </div>
-
                     </div>
                 </div>
 

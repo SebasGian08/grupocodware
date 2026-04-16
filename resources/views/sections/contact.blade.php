@@ -33,7 +33,7 @@
                             style="color: white; background: #0dcaf0; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; flex-shrink: 0;">
                             <i class="fa-solid fa-check" style="font-size: 12px;"></i>
                         </span>
-                        <span>Respuesta en menos de 24 horas</span>
+                        <span>Respuesta en menos de 4 horas</span>
                     </li>
                     <li
                         style="display: flex; align-items: center; gap: 15px; color: #2d3748; font-weight: 500; margin-bottom: 20px;">
@@ -43,12 +43,21 @@
                         </span>
                         <span>Asesoría técnica especializada</span>
                     </li>
-                    <li style="display: flex; align-items: center; gap: 15px; color: #2d3748; font-weight: 500;">
+                    <li
+                        style="display: flex; align-items: center; gap: 15px; color: #2d3748; font-weight: 500;margin-bottom: 20px;">
                         <span
                             style="color: white; background: #0dcaf0; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; flex-shrink: 0;">
                             <i class="fa-solid fa-check" style="font-size: 12px;"></i>
                         </span>
                         <span>Cotización sin compromiso</span>
+                    </li>
+                    <li
+                        style="display: flex; align-items: center; gap: 15px; color: #2d3748; font-weight: 500;margin-bottom: 20px;">
+                        <span
+                            style="color: white; background: #0dcaf0; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; flex-shrink: 0;">
+                            <i class="fa-solid fa-check" style="font-size: 12px;"></i>
+                        </span>
+                        <span>Empresa peruana de soluciones digitales</span>
                     </li>
                 </ul>
             </div>
@@ -113,6 +122,15 @@
                                     <span class="text-two"><i class="fas fa-paper-plane me-2"></i> Enviar</span>
                                 </span>
                             </button>
+                        </div>
+
+                        <div class="hb-form-alt">
+                            <span class="hb-text">¿Prefieres hablar ahora?</span>
+
+                            <a href="https://wa.link/1bzihi" target="_blank" class="hb-form-wa">
+                                <i class="fab fa-whatsapp"></i>
+                                Abrir WhatsApp
+                            </a>
                         </div>
                     </div>
 

@@ -66,9 +66,9 @@
                             <td>{{ $blog->created_at->format('d/m/Y') }}</td>
 
                             <td>
-                                <button class="btn btn-primary btn-border btn-round" data-bs-toggle="modal"
+                                <button class="btn btn-sm mt-2 btn-primary btn-border btn-round" data-bs-toggle="modal"
                                     data-bs-target="#edit{{ $blog->id_blog }}">
-                                    <i class="fa fa-edit"></i> Editar
+                                    <i class="fa fa-edit"></i>
                                 </button>
 
                                 <form action="{{ route('admin.blogs.destroy', $blog->id_blog) }}" method="POST"
@@ -76,9 +76,9 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <button type="button" class="btn btn-danger btn-border btn-round btn-delete"
+                                    <button type="button" class="btn btn-sm mt-2 btn-danger btn-border btn-round btn-delete"
                                         data-id="{{ $blog->id_blog }}" data-name="{{ $blog->title }}">
-                                        <i class="fa fa-trash"></i> Eliminar
+                                        <i class="fa fa-trash"></i>
                                     </button>
                                 </form>
                             </td>
