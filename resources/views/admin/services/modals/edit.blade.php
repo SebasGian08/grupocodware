@@ -1,6 +1,7 @@
 <div class="modal fade" id="edit{{ $service->id_service }}">
     <div class="modal-dialog modal-xl">
-        <form action="{{ route('admin.servicios.update', $service->id_service) }}" method="POST">
+        <form action="{{ route('admin.servicios.update', $service->id_service) }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="modal-content">
@@ -27,15 +28,77 @@
 
                     <div class="tab-content mt-3">
                         <div class="tab-pane fade show active" id="tab-general-edit-{{ $service->id_service }}">
-                            <label>Nombre del Servicio</label>
-                            <input type="text" name="nombre" value="{{ $service->nombre }}" class="form-control mb-2">
 
-                            <label>Descripción</label>
-                            <textarea name="descripcion"
-                                class="form-control mb-2">{{ $service->descripcion }}</textarea>
+                            <div class="row">
 
-                            <label>Contenido</label>
-                            <textarea name="content" id="editorEditService{{ $service->id_service }}">{{ $service->content }}</textarea>
+                                <!-- IZQUIERDA -->
+                                <div class="col-md-6">
+
+                                    <label>Nombre del Servicio</label>
+                                    <input type="text" name="nombre" value="{{ $service->nombre }}"
+                                        class="form-control mb-2">
+
+                                    <label>Descripción</label>
+                                    <textarea name="descripcion"
+                                        class="form-control mb-2">{{ $service->descripcion }}</textarea>
+
+                                    <label>Descripción Portada</label>
+                                    <input type="text" name="descripcion_portada"
+                                        value="{{ $service->descripcion_portada }}" class="form-control mb-2">
+
+                                    <label>Descripción Breve Portada</label>
+                                    <input type="text" name="descripcion_breve_portada"
+                                        value="{{ $service->descripcion_breve_portada }}" class="form-control mb-2">
+
+                                </div>
+
+                                <!-- DERECHA -->
+                                <div class="col-md-6">
+
+                                    <!-- PORTADA -->
+                                    <label>Portada</label>
+                                    @if($service->portada)
+                                    <div class="mb-2 text-center">
+                                        <img src="{{ asset('storage/'.$service->portada) }}"
+                                            class="img-fluid rounded shadow" style="max-height:120px;">
+                                        <div class="small text-muted">Actual</div>
+                                    </div>
+                                    @endif
+                                    <input type="file" name="portada" class="form-control mb-3">
+
+                                    <!-- IMAGEN PORTADA -->
+                                    <label>Imagen Portada</label>
+                                    @if($service->imagen_portada)
+                                    <div class="mb-2 text-center">
+                                        <img src="{{ asset('storage/'.$service->imagen_portada) }}"
+                                            class="img-fluid rounded shadow" style="max-height:120px;">
+                                        <div class="small text-muted">Actual</div>
+                                    </div>
+                                    @endif
+                                    <input type="file" name="imagen_portada" class="form-control mb-3">
+
+                                    <!-- IMAGEN REFERENCIAL -->
+                                    <label>Imagen Referencial</label>
+                                    @if($service->imagen_referencial)
+                                    <div class="mb-2 text-center">
+                                        <img src="{{ asset('storage/'.$service->imagen_referencial) }}"
+                                            class="img-fluid rounded shadow" style="max-height:120px;">
+                                        <div class="small text-muted">Actual</div>
+                                    </div>
+                                    @endif
+                                    <input type="file" name="imagen_referencial" class="form-control mb-2">
+
+                                </div>
+
+                            </div>
+
+                            <!-- CONTENIDO FULL WIDTH -->
+                            <div class="mt-3">
+                                <label>Contenido</label>
+                                <textarea name="content" id="editorEditService{{ $service->id_service }}"
+                                    class="form-control">{{ $service->content }}</textarea>
+                            </div>
+
                         </div>
 
                         <div class="tab-pane fade" id="tab-beneficios-edit-{{ $service->id_service }}">

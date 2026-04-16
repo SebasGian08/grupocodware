@@ -1,24 +1,30 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Service;
-use App\Models\ServiceBenefit;
-use App\Models\ServicePlan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
     public function index()
     {
         $services = Service::with(['benefits', 'plans.features'])
+            ->whereNull('deleted_at')
             ->orderBy('id_service', 'desc')
             ->get();
-
+            
         return view('admin.services.index', compact('services'));
+    }
+
+    private function uploadImage($file, $folder = 'services')
+    {
+        $path = $file->store($folder, 'public'); 
+        return $path; 
     }
 
     public function store(Request $request)
@@ -26,12 +32,29 @@ class ServiceController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
-            'planes.*.nombre' => 'required_with:planes|string',
-            'planes.*.precio' => 'nullable|numeric',
+            'portada' => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'imagen_portada' => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'imagen_referencial' => 'nullable|image|mimes:jpg,jpeg,png,webp',
         ]);
 
         try {
             DB::beginTransaction();
+
+            $portada = null;
+            $imagenPortada = null;
+            $imagenReferencial = null;
+
+            if ($request->hasFile('portada')) {
+                $portada = $this->uploadImage($request->file('portada'));
+            }
+
+            if ($request->hasFile('imagen_portada')) {
+                $imagenPortada = $this->uploadImage($request->file('imagen_portada'));
+            }
+
+            if ($request->hasFile('imagen_referencial')) {
+                $imagenReferencial = $this->uploadImage($request->file('imagen_referencial'));
+            }
 
             $service = Service::create([
                 'nombre' => $request->nombre,
@@ -40,36 +63,40 @@ class ServiceController extends Controller
                 'descripcion_portada' => $request->descripcion_portada,
                 'descripcion_breve_portada' => $request->descripcion_breve_portada,
                 'content' => $request->content,
+
+                'portada' => $portada,
+                'imagen_portada' => $imagenPortada,
+                'imagen_referencial' => $imagenReferencial,
+
                 'estado' => 1,
             ]);
 
+            // BENEFICIOS
             if ($request->has('beneficios')) {
-                foreach ($request->beneficios as $beneficio) {
-                    if (!empty($beneficio['titulo'])) {
-                        $service->benefits()->create([
-                            'titulo'      => $beneficio['titulo'],
-                            'descripcion' => $beneficio['descripcion'],
-                            'icono'       => $beneficio['icono'] ?? null,
-                        ]);
+                foreach ($request->beneficios as $b) {
+                    if (!empty($b['titulo'])) {
+                        $service->benefits()->create($b);
                     }
                 }
             }
 
+            // PLANES
             if ($request->has('planes')) {
-                foreach ($request->planes as $plan) {
-                    if (!empty($plan['nombre'])) {
-                        $newPlan = $service->plans()->create([
-                            'nombre'      => $plan['nombre'],
-                            'precio'      => $plan['precio'] ?? 0,
-                            'descripcion' => $plan['descripcion'],
-                            'destacado'   => isset($plan['destacado']) ? 1 : 0,
+                foreach ($request->planes as $p) {
+                    if (!empty($p['nombre'])) {
+
+                        $plan = $service->plans()->create([
+                            'nombre' => $p['nombre'],
+                            'precio' => $p['precio'] ?? 0,
+                            'descripcion' => $p['descripcion'],
+                            'destacado' => isset($p['destacado']) ? 1 : 0,
                         ]);
 
-                        if (isset($plan['features']) && is_array($plan['features'])) {
-                            foreach ($plan['features'] as $featureContent) {
-                                if (!empty($featureContent)) {
-                                    $newPlan->features()->create([
-                                        'descripcion' => $featureContent
+                        if (!empty($p['features'])) {
+                            foreach ($p['features'] as $f) {
+                                if ($f) {
+                                    $plan->features()->create([
+                                        'descripcion' => $f
                                     ]);
                                 }
                             }
@@ -79,30 +106,47 @@ class ServiceController extends Controller
             }
 
             DB::commit();
+
             return redirect()->route('admin.servicios.index')
-                            ->with('success', 'Servicio y planes creados correctamente.');
+                ->with('success', 'Servicio creado correctamente');
 
         } catch (\Exception $e) {
             DB::rollBack();
-            // Opcional: Log::error($e->getMessage());
-            return back()->withInput()->with('error', 'Ocurrió un error al guardar: ' . $e->getMessage());
+            return back()->with('error', $e->getMessage());
         }
     }
 
     public function update(Request $request, $id)
     {
-        
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
-            'planes.*.nombre' => 'nullable|string',
-            'planes.*.precio' => 'nullable|numeric',
+            'portada' => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'imagen_portada' => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'imagen_referencial' => 'nullable|image|mimes:jpg,jpeg,png,webp',
         ]);
 
         try {
             DB::beginTransaction();
 
             $service = Service::findOrFail($id);
+
+            $portada = $service->portada;
+            $imagenPortada = $service->imagen_portada;
+            $imagenReferencial = $service->imagen_referencial;
+
+            if ($request->hasFile('portada')) {
+                $portada = $this->uploadImage($request->file('portada'));
+            }
+
+            if ($request->hasFile('imagen_portada')) {
+                $imagenPortada = $this->uploadImage($request->file('imagen_portada'));
+            }
+
+            if ($request->hasFile('imagen_referencial')) {
+                $imagenReferencial = $this->uploadImage($request->file('imagen_referencial'));
+            }
+
             $service->update([
                 'nombre' => $request->nombre,
                 'slug' => Str::slug($request->nombre),
@@ -110,42 +154,40 @@ class ServiceController extends Controller
                 'descripcion_portada' => $request->descripcion_portada,
                 'descripcion_breve_portada' => $request->descripcion_breve_portada,
                 'content' => $request->content,
-                // 'estado' => 1, // El estado normalmente no se cambia en update a menos que tengas un switch
+
+                'portada' => $portada,
+                'imagen_portada' => $imagenPortada,
+                'imagen_referencial' => $imagenReferencial,
             ]);
-            $service->benefits()->delete(); 
+
+            // BENEFICIOS
+            $service->benefits()->delete();
             if ($request->has('beneficios')) {
-                foreach ($request->beneficios as $beneficio) {
-                    if (!empty($beneficio['titulo'])) {
-                        $service->benefits()->create([
-                            'titulo'      => $beneficio['titulo'],
-                            'descripcion' => $beneficio['descripcion'],
-                            'icono'       => $beneficio['icono'] ?? null,
-                        ]);
+                foreach ($request->beneficios as $b) {
+                    if (!empty($b['titulo'])) {
+                        $service->benefits()->create($b);
                     }
                 }
             }
 
-            // 4. Actualizar PLANES (Eliminar y Volver a Crear)
-            // Nota: Al eliminar el plan, si usas cascade en BD, se borrarán sus features automáticamente.
-            // Si no, es mejor hacer $service->plans()->each(function($p){ $p->features()->delete(); });
-            $service->plans()->delete(); 
-
+            // PLANES
+            $service->plans()->delete();
             if ($request->has('planes')) {
-                foreach ($request->planes as $plan) {
-                    if (!empty($plan['nombre'])) {
-                        $newPlan = $service->plans()->create([
-                            'nombre'      => $plan['nombre'],
-                            'precio'      => $plan['precio'] ?? 0,
-                            'descripcion' => $plan['descripcion'],
-                            'destacado'   => isset($plan['destacado']) ? 1 : 0,
+                foreach ($request->planes as $p) {
+                    if (!empty($p['nombre'])) {
+
+                        $plan = $service->plans()->create([
+                            'nombre' => $p['nombre'],
+                            'precio' => $p['precio'] ?? 0,
+                            'descripcion' => $p['descripcion'],
+                            'destacado' => isset($p['destacado']) ? 1 : 0,
                         ]);
 
-                        // Guardar Características del Plan
-                        if (isset($plan['features']) && is_array($plan['features'])) {
-                            foreach ($plan['features'] as $featureContent) {
-                                if (!empty($featureContent)) {
-                                    $newPlan->features()->create([
-                                        'descripcion' => $featureContent
+                        if (!empty($p['features'])) {
+                            foreach ($p['features'] as $f) {
+                                if ($f) {
+                                    $plan->features()->create([
+                                        'descripcion' => $f
                                     ]);
                                 }
                             }
@@ -155,12 +197,13 @@ class ServiceController extends Controller
             }
 
             DB::commit();
+
             return redirect()->route('admin.servicios.index')
-                            ->with('success', 'Servicio actualizado correctamente.');
+                ->with('success', 'Servicio actualizado correctamente');
 
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->withInput()->with('error', 'Ocurrió un error al actualizar: ' . $e->getMessage());
+            return back()->with('error', $e->getMessage());
         }
     }
 

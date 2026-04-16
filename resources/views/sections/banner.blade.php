@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="hero-image">
-                    <img src="{{ asset('assets/images/resource/bannerpng.png') }}" alt="">
+                    <img src="{{ asset('assets/images/resource/bannerpng.webp') }}" alt="">
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="hero-image">
-                    <img src="{{ asset('assets/images/resource/bannerpng2.png') }}" alt="">
+                    <img src="{{ asset('assets/images/resource/bannerpng2.webp') }}" alt="">
                 </div>
 
             </div>
@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="hero-image">
-                    <img src="{{ asset('assets/images/resource/bannerpng3.png') }}" alt="">
+                    <img src="{{ asset('assets/images/resource/bannerpng3.webp') }}" alt="">
                 </div>
 
             </div>

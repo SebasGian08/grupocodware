@@ -74,7 +74,7 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <button class="btn btn-sm mt-2 btn-danger btn-border btn-round">
+                                    <button class="btn btn-sm mt-2 btn-danger btn-border btn-round btn-delete" data-id="{{ $service->id_service }}" data-name="{{ $service->nombre }}">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </form>

@@ -62,8 +62,8 @@ $(document).ready(function() {
         let form = '#delete-form-' + id;
 
         Swal.fire({
-            title: '¿Eliminar blog?',
-            text: name,
+            title: '¿Estás seguro que desea eliminar?',
+            text: "El item será eliminado permanentemente",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',

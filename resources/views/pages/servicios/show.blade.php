@@ -6,9 +6,8 @@
 
 <div class="swiper bannerSwiper">
     <div class="swiper-wrapper">
-        <div class="swiper-slide hero-slide" style="background-image:url('{{ asset('storage/'.$service->portada) }}');
-                   background-size:cover;
-                   background-position:center;">
+        <div class="swiper-slide hero-slide"
+            style="background-image:url('{{ asset('storage/'.$service->portada) }}'); background-size:cover; background-position:center;">
             <div class="hero-container">
                 <div class="hero-text">
                     <h1 class="titulo-principal sec-title_three-heading">
@@ -30,7 +29,8 @@
         </div>
     </div>
 </div>
-<!-- Testimonial Three -->
+
+
 <section class="testimonial-three">
     <div class="auto-container">
         <div class="row clearfix">
@@ -56,9 +56,46 @@
         </div>
     </div>
 </section>
-<!-- End Testimonial Three -->
 
+@if($service->benefits && $service->benefits->count())
 
+<section class="incluido-section">
+    <div class="section-wrapper">
+
+        <div class="sec-title_three text-center" style="margin-bottom: 50px;">
+            <div class="sec-title_three-title"
+                style="color: #0dcaf0; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; margin-bottom: 10px;">
+                Descubre lo que obtienes</div>
+            <h2 class="sec-title_three-heading" style="font-size: 36px; color: #1a202c; font-weight: 800;">
+                Una experiencia completa lista para  <span style="color: #0dcaf0;">impulsar tu proyecto</span>
+            </h2>
+        </div>
+
+        <div class="incluido-grid">
+
+            @foreach($service->benefits as $benefit)
+
+            <div class="incluido-item">
+
+                <div class="incluido-icon">
+                    <i class="{{ $benefit->icono }}"></i>
+                </div>
+
+                <div class="incluido-text">
+                    <h4>{{ $benefit->titulo }}</h4>
+                    <p>{{ $benefit->descripcion }}</p>
+                </div>
+
+            </div>
+
+            @endforeach
+
+        </div>
+
+    </div>
+</section>
+
+@endif
 
 @if($service->plans && $service->plans->count())
 
@@ -127,6 +164,84 @@
 </section>
 
 @endif
+
+@if($portafolios->count())
+
+<section id="proyectos" class="idx-proy-section">
+    <div class="idx-wrap">
+
+        <!-- HEADER -->
+        <div class="sec-title_two centered">
+            <div class="sec-title_two-title">~ Casos de éxito ~</div>
+            <h2 class="sec-title_three-heading" style="color: #fff;">
+                Proyectos desarrollados para <span>marcas y empresas</span>
+            </h2>
+        </div>
+
+        <!-- GRID -->
+        <div class="idx-proy-grid">
+
+            @foreach($portafolios as $portafolio)
+
+            <a href="{{ $portafolio->url_demo ?? '#' }}" class="idx-proy-card">
+
+                <div class="idx-proy-img">
+                    @if($portafolio->imagen)
+                        <img src="{{ asset('storage/'.$portafolio->imagen) }}"
+                             alt="{{ $portafolio->titulo }}"
+                             loading="lazy">
+                    @else
+                        <div class="idx-proy-noimg">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    @endif
+                </div>
+
+                <div class="idx-proy-body">
+
+                    <span class="idx-proy-cat">
+                        {{ ucfirst($portafolio->tipo) }}
+                    </span>
+
+                    <div class="idx-proy-title">
+                        {{ $portafolio->titulo }}
+                    </div>
+
+                    @if($portafolio->cliente)
+                    <div class="idx-proy-client">
+                        <i class="fas fa-building"></i>
+                        {{ $portafolio->cliente }}
+                    </div>
+                    @endif
+
+                    <div class="idx-proy-desc">
+                        {{ Str::limit($portafolio->descripcion, 120) }}
+                    </div>
+
+                    <span class="idx-proy-link">
+                        Ver proyecto <i class="fas fa-arrow-right"></i>
+                    </span>
+
+                </div>
+
+            </a>
+
+            @endforeach
+
+        </div>
+
+        <!-- BOTÓN -->
+        <div class="idx-btn-center">
+            <a href="#" class="idx-btn">
+                Ver todos los proyectos <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+@endif
+
 <!-- End Pricing One -->
 @include('sections.contact')
 
