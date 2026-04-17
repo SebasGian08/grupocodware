@@ -12,8 +12,8 @@
 
 <script src="{{ asset('admin/assets/js/plugin/datatables/datatables.min.js') }}"></script>
 
-<script src="{{ asset('admin/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
-
+<!-- <script src="{{ asset('admin/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>-->
+ 
 <script src="{{ asset('admin/assets/js/plugin/jsvectormap/jsvectormap.min.js') }}"></script>
 <script src="{{ asset('admin/assets/js/plugin/jsvectormap/world.js') }}"></script>
 

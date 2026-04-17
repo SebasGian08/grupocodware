@@ -57,11 +57,14 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-success">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">
+                        <i class="fa fa-times"></i> Cerrar
+                    </button>
+
+                    <button type="submit" class="btn btn-success">
                         <i class="fa fa-check"></i> Guardar
                     </button>
                 </div>
-
             </div>
 
         </form>

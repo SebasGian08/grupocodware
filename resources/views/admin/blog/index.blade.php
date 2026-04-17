@@ -31,7 +31,7 @@
 
         <div class="ms-md-auto py-2 py-md-0">
             <button class="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#modalCreate">
-                <i class="fa fa-plus"></i> Nuevo Usuario
+                <i class="fa fa-plus"></i> Nuevo Blog
             </button>
         </div>
     </div>

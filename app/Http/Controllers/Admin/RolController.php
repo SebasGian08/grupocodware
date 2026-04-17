@@ -4,23 +4,50 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Rol;
 
 class RolController extends Controller
 {
     public function index()
     {
-        // Por ahora, simularemos datos o si tienes modelo Role, úsalo
-        // $roles = Role::all(); 
-        return view('admin.roles.index');
-    }
+        $roles = Rol::orderBy('id_rol', 'desc')->get();
 
-    public function create()
-    {
-        return view('admin.roles.create');
+        return view('admin.roles.index', compact('roles'));
     }
 
     public function store(Request $request)
     {
-        return redirect()->route('admin.roles.index')->with('success', 'Rol creado.');
+        $request->validate([
+            'nombre' => 'required|max:255'
+        ]);
+
+        Rol::create([
+            'nombre' => $request->nombre,
+            'estado' => 1
+        ]);
+
+        return back()->with('success', 'Rol creado correctamente');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nombre' => 'required|max:255'
+        ]);
+
+        $rol = Rol::findOrFail($id);
+
+        $rol->update([
+            'nombre' => $request->nombre
+        ]);
+
+        return back()->with('success', 'Rol actualizado');
+    }
+
+    public function destroy($id)
+    {
+        Rol::findOrFail($id)->delete();
+
+        return back()->with('delete', 'Rol eliminado');
     }
 }

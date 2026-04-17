@@ -15,7 +15,13 @@ class Usuario extends Authenticatable
     protected $primaryKey = 'id_usuario';
     protected $dates = ['deleted_at'];
     protected $fillable = [
-        'id_rol', 'nombres', 'apellidos', 'email', 'password', 'telefono', 'estado'
+        'id_rol',
+        'nombres',
+        'apellidos',
+        'email',
+        'password',
+        'telefono',
+        'estado'
     ];
 
     public function rol()

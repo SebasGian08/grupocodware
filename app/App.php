@@ -8,30 +8,11 @@ use Carbon\Carbon;
 
 class App
 {
-    public static $PERFIL_EMPRESA = 1;
-    public static $PERFIL_ALUMNO = 2;
-
-    public static $TIPO_ALUMNO = 0;
-    public static $TIPO_EGRESADO = 1;
-    public static $TIPO_TITULADO = 2;
-
-    public static $HABILIDAD_PERSONAL = 1;
-    public static $HABILIDAD_PROFESIONAL = 2;
-
-    public static $ESTADO_POSTULANTES = 1;
-    public static $ESTADO_EVALUANDO = 2;
-    public static $ESTADO_SELECCIONADOS = 3;
-    public static $ESTADO_ACEPTADOS = 4;
-    public static $ESTADO_DESCARTADOS = 5;
-
     public static $PERFIL_DESARROLLADOR= 1;
     public static $PERFIL_ADMINISTRADOR = 2;
     public static $PERFIL_JEFE = 3;
     public static $PERFIL_ANALISTA_VENDEDOR= 4;
     public static $PERFIL_VENDEDOR = 5;
-    public static $PERFIL_CLIENTE_ASOCIADO = 6;
-    public static $PERFIL_MOTORIZADO = 7;
-    public static $PERFIL_APROBADOR_ALMACEN = 9;
    
 
     public static function ObtenerNombreMes($mes)

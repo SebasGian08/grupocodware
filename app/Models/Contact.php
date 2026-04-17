@@ -44,4 +44,10 @@ class Contact extends Model
     {
         return $this->belongsTo(Priority::class, 'id_priority');
     }
+
+    public function seguimientos()
+    {
+        return $this->hasMany(ContactSeguimiento::class, 'contact_id', 'id_contact')
+                    ->orderBy('created_at', 'desc');
+    }
 }

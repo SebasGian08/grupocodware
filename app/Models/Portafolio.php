@@ -9,6 +9,8 @@ class Portafolio extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'portafolios';
+    
     protected $fillable = [
         'service_id',
         'titulo',

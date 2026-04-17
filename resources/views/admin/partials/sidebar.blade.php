@@ -59,7 +59,7 @@
                 <!-- CONTENIDO -->
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
+                        <i class="fas fa-globe"></i>
                     </span>
                     <h4 class="text-section">Contenido Web</h4>
                 </li>
@@ -74,8 +74,22 @@
 
                 <li class="nav-item {{ Request::is('admin/servicios*') ? 'active' : '' }}">
                     <a href="{{ route('admin.servicios.index') }}">
-                        <i class="fas fa-concierge-bell"></i>
+                        <i class="fas fa-cog"></i>
                         <p>Servicios</p>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ Request::is('admin/portafolios*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.portafolios.index') }}">
+                        <i class="fas fa-briefcase"></i>
+                        <p>Portafolio</p>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ Request::is('admin/contactos*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.contacts.index') }}">
+                        <i class="fas fa-envelope"></i>
+                        <p>Contactos</p>
                     </a>
                 </li>
 

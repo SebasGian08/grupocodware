@@ -29,7 +29,7 @@ class LoginController extends Controller
 
         if ($usuario && Hash::check($request->password, $usuario->password)) {
             
-            Auth::login($usuario);
+            Auth::login($usuario, $request->has('remember'));
 
             $request->session()->regenerate();
 

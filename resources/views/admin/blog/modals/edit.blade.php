@@ -19,9 +19,7 @@
                         <div class="col-md-6">
 
                             <label>Título</label>
-                            <input type="text" name="title"
-                                value="{{ $blog->title }}"
-                                class="form-control mb-2">
+                            <input type="text" name="title" value="{{ $blog->title }}" class="form-control mb-2">
 
                             <label>Resumen</label>
                             <textarea name="excerpt" class="form-control mb-2">
@@ -72,7 +70,10 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-warning">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">
+                        <i class="fa fa-times"></i> Cerrar
+                    </button>
+                    <button type="submit" class="btn btn-warning">
                         <i class="fa fa-edit"></i> Actualizar
                     </button>
                 </div>

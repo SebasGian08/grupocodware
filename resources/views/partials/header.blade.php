@@ -39,7 +39,7 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="{{ route('mantenimiento') }}">Portafolio</a></li>
+                                <li><a href="{{ route('portafolio.index') }}">Portafolio</a></li>
                                 <li><a href="{{ route('contact.index') }}">Contacto</a></li>
 
                             </ul>
