@@ -790,3 +790,46 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* libro de recla */
+.reclamaciones-box {
+    margin-top: 15px;
+}
+
+.reclamaciones-box a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff; /* blanco */
+    border: 1px solid #dbeafe; /* borde suave azulado */
+
+    border-radius: 8px;
+    padding: 8px 6px;
+    width: 140px; /* tamaño pequeño */
+
+    text-decoration: none;
+
+    box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+
+    transition: all 0.2s ease;
+}
+
+.reclamaciones-box .titulo {
+    color: #051e26;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.reclamaciones-box img {
+    width: 100px;
+    height: auto;
+}
+
+.reclamaciones-box a:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+}

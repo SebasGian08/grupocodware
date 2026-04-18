@@ -95,12 +95,22 @@
                                 <ul class="contact-list">
                                     <li><span class="icon fa fa-phone"></span> +51 912 648 531</li>
                                     <li><span class="icon fa fa-envelope"></span> ventas@grupocodware.com</li>
+
                                 </ul>
 
                                 <div class="timing">
                                     <strong>Horarios:</strong><br>
                                     Lunes a Viernes: 8 a.m. - 5 p.m.<br>
                                     Sabados: 8 a.m. - 1 p.m.
+                                </div>
+
+                                <div class="reclamaciones-box">
+                                    <a href="https://facturacion.erpgrupocodware.com/reclamos" target="_blank">
+                                        <span class="titulo">Libro de Reclamaciones</span>
+
+                                        <img src="{{ asset('assets/images/icons/libro_reclamaciones.png') }}"
+                                            alt="Libro de Reclamaciones">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -134,3 +144,53 @@
     </div>
 
 </a>
+
+<!-- BOTÓN LIBRO DE RECLAMACIONES -->
+<!-- <a href="https://facturacion.erpgrupocodware.com/reclamos" class="reclamaciones-float" target="_blank">
+
+    <i class="fas fa-book"></i>
+
+    <div class="reclamaciones-bubble">
+        Libro de Reclamaciones
+    </div>
+
+</a>
+
+<style>
+    .reclamaciones-float {
+    position: fixed;
+    right: 25px;
+    bottom: 100px;
+    width: 55px;
+    height: 55px;
+    background: #ff9800;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 24px;
+    line-height: 55px;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.reclamaciones-float:hover {
+    background: #e68900;
+}
+
+.reclamaciones-bubble {
+    position: absolute;
+    right: 70px;
+    bottom: 10px;
+    background: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    display: none;
+    white-space: nowrap;
+}
+
+.reclamaciones-float:hover .reclamaciones-bubble {
+    display: block;
+}
+</style> -->

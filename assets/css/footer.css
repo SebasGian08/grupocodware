@@ -13,6 +13,7 @@
 	background-color:var(--color-twentysix);
 	background-position:center center;
 	background-repeat:no-repeat;
+	border-top: 5px solid #0dcaf0;
 }
 
 .main-footer .footer-widget{
