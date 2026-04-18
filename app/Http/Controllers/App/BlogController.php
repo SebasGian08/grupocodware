@@ -22,7 +22,7 @@ class BlogController extends Controller
 
         $blogs = $query->orderBy('id_blog', 'desc')->get();
 
-        return view('pages.blog', compact('blogs'));
+        return view('pages.blog.index', compact('blogs'));
     }
 
     public function show($slug)
@@ -35,6 +35,6 @@ class BlogController extends Controller
             ->take(3)
             ->get();
 
-        return view('pages.blog-detail', compact('blog', 'recentBlogs', 'services'));
+        return view('pages.blog.blog-detail', compact('blog', 'recentBlogs', 'services'));
     }
 }

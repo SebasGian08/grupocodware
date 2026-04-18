@@ -16,7 +16,7 @@
 
                         <!-- IMAGE -->
                         <div class="image">
-                            <img src="{{ asset('storage/'.$blog->image) }}" alt="{{ $blog->title }}">
+                            <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}">
                         </div>
 
                         <!-- CONTENT -->
@@ -28,10 +28,10 @@
                                     {{ $blog->created_at->format('d M Y') }}
                                 </li>
 
-                                <li>
+                               <!--  <li>
                                     <span class="icon fa-solid fa-user fa-fw"></span>
                                     por <strong>{{ $blog->user->name ?? 'Admin' }}</strong>
-                                </li>
+                                </li> -->
 
                                 <li>
                                     <span class="icon fa-solid fa-tag fa-fw"></span>
@@ -87,7 +87,7 @@
                         <article class="post">
 
                             <figure class="post-thumb">
-                                <img src="{{ asset('storage/'.$item->image) }}">
+                                <img src="{{ asset($item->image) }}">
                             </figure>
 
                             <div class="text">

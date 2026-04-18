@@ -14,9 +14,11 @@ class HomeController extends Controller
         $services = Service::where('estado', 1)->get();
 
         $blogs = Blog::where('status', 1)
-                    ->orderBy('id_blog', 'desc')
-                    ->get();
+                ->latest('id_blog')
+                ->take(6)
+                ->get();
 
+                
         return view('pages.home', compact('services', 'blogs'));
     }
 
