@@ -43,7 +43,8 @@
 
                             <h4>{{ $blog->title }}</h4>
 
-                            <p>{!! $blog->content !!}</p>
+
+                            {!! strip_tags($blog->content, '<p><strong><br><ul><li>') !!}
 
                         </div>
 
