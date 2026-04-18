@@ -39,14 +39,13 @@
             <div class="testimonial-three_carousel-column col-lg-6 col-md-12 col-sm-12">
                 <div class="testimonial-three_carousel-inner">
                     <div class="sec-title">
-                        {{ $service->content }}
+                        {!! strip_tags($service->content, '<p><strong><br><ul><li>') !!}
                     </div>
                 </div>
             </div>
             <div class="testimonial-three_image-column col-lg-6 col-md-12 col-sm-12">
                 <div class="testimonial-three_image-inner">
                     <div class="testimonial-three_image">
-                        {{-- Eliminado 'storage/' --}}
                         <img src="{{ asset($service->imagen_referencial) }}" alt="image" />
                     </div>
                 </div>
