@@ -3,8 +3,8 @@ vendor/*
 config/*
 database/*
 
-
-storage/*
+uploads/
+storage/
 public/uploads/*
 public/uploadsbk/*
 public/.well-known/*
