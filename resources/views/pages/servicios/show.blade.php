@@ -16,9 +16,9 @@
                     <p>
                         {{ $service->descripcion_breve_portada }}
                     </p>
-                    <button class="theme-btn btn-style-seven">
+                    <!-- <button class="theme-btn btn-style-seven">
                         Saber más
-                    </button>
+                    </button> -->
                 </div>
                 <div class="hero-image">
                     @if($service->imagen_portada)
@@ -39,7 +39,15 @@
             <div class="testimonial-three_carousel-column col-lg-6 col-md-12 col-sm-12">
                 <div class="testimonial-three_carousel-inner">
                     <div class="sec-title">
-                        {!! strip_tags($service->content, '<p><strong><br><ul><li>') !!}
+                        <div class="sec-title_title">Calidad y confianza garantizada</div>
+                        <h2 class="sec-title_heading">
+                            Nuestro <span>Servicio</span>
+                        </h2>
+                        <div class="sec-title_text">
+                            {!! strip_tags($service->content, '<p><strong><br>
+                                    <ul>
+                                        <li>') !!}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,7 +73,7 @@
                 style="color: #0dcaf0; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; margin-bottom: 10px;">
                 Descubre lo que obtienes</div>
             <h2 class="sec-title_three-heading" style="font-size: 36px; color: #1a202c; font-weight: 800;">
-                Una experiencia completa lista para  <span style="color: #0dcaf0;">impulsar tu proyecto</span>
+                Una experiencia completa lista para <span style="color: #0dcaf0;">impulsar tu proyecto</span>
             </h2>
         </div>
 
@@ -179,14 +187,12 @@
 
                 <div class="idx-proy-img">
                     @if($portafolio->imagen)
-                        {{-- Eliminado 'storage/' --}}
-                        <img src="{{ asset($portafolio->imagen) }}"
-                             alt="{{ $portafolio->titulo }}"
-                             loading="lazy">
+                    {{-- Eliminado 'storage/' --}}
+                    <img src="{{ asset($portafolio->imagen) }}" alt="{{ $portafolio->titulo }}" loading="lazy">
                     @else
-                        <div class="idx-proy-noimg">
-                            <i class="fas fa-code"></i>
-                        </div>
+                    <div class="idx-proy-noimg">
+                        <i class="fas fa-code"></i>
+                    </div>
                     @endif
                 </div>
 
