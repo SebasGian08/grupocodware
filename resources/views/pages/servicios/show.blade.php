@@ -7,7 +7,7 @@
 <div class="swiper bannerSwiper">
     <div class="swiper-wrapper">
         <div class="swiper-slide hero-slide"
-            style="background-image:url('{{ asset('storage/'.$service->portada) }}'); background-size:cover; background-position:center;">
+            style="background-image:url('{{ asset($service->portada) }}'); background-size:cover; background-position:center;">
             <div class="hero-container">
                 <div class="hero-text">
                     <h1 class="titulo-principal sec-title_three-heading">
@@ -22,7 +22,8 @@
                 </div>
                 <div class="hero-image">
                     @if($service->imagen_portada)
-                    <img src="{{ asset('storage/'.$service->imagen_portada) }}" alt="{{ $service->nombre }}">
+                    {{-- Eliminado 'storage/' --}}
+                    <img src="{{ asset($service->imagen_portada) }}" alt="{{ $service->nombre }}">
                     @endif
                 </div>
             </div>
@@ -35,20 +36,18 @@
     <div class="auto-container">
         <div class="row clearfix">
 
-            <!-- Carousel Column -->
             <div class="testimonial-three_carousel-column col-lg-6 col-md-12 col-sm-12">
                 <div class="testimonial-three_carousel-inner">
-                    <!-- Sec Title -->
                     <div class="sec-title">
                         {{ $service->content }}
                     </div>
                 </div>
             </div>
-            <!-- Image Column -->
             <div class="testimonial-three_image-column col-lg-6 col-md-12 col-sm-12">
                 <div class="testimonial-three_image-inner">
                     <div class="testimonial-three_image">
-                        <img src="{{ asset('storage/'.$service->imagen_referencial) }}" alt="image" />
+                        {{-- Eliminado 'storage/' --}}
+                        <img src="{{ asset($service->imagen_referencial) }}" alt="image" />
                     </div>
                 </div>
             </div>
@@ -123,23 +122,19 @@
 
                 <div class="inner-box">
 
-                    {{-- DESTACADO --}}
                     @if($plan->destacado)
                     <div class="recomend">Más Vendido</div>
                     @endif
 
-                    {{-- TITULO --}}
                     <div class="title-box">
                         <h5>{{ $plan->nombre }}</h5>
                         <div class="text">{{ $plan->descripcion }}</div>
                     </div>
 
-                    {{-- PRECIO --}}
                     <div class="price">
                         S/{{ $plan->precio }}
                     </div>
 
-                    {{-- FEATURES --}}
                     @if($plan->features && $plan->features->count())
                     <div class="lower-box">
                         <ul class="price-list">
@@ -170,7 +165,6 @@
 <section id="proyectos" class="idx-proy-section">
     <div class="idx-wrap">
 
-        <!-- HEADER -->
         <div class="sec-title_two centered">
             <div class="sec-title_two-title">~ Casos de éxito ~</div>
             <h2 class="sec-title_three-heading" style="color: #fff;">
@@ -178,7 +172,6 @@
             </h2>
         </div>
 
-        <!-- GRID -->
         <div class="idx-proy-grid">
 
             @foreach($portafolios as $portafolio)
@@ -187,7 +180,8 @@
 
                 <div class="idx-proy-img">
                     @if($portafolio->imagen)
-                        <img src="{{ asset('storage/'.$portafolio->imagen) }}"
+                        {{-- Eliminado 'storage/' --}}
+                        <img src="{{ asset($portafolio->imagen) }}"
                              alt="{{ $portafolio->titulo }}"
                              loading="lazy">
                     @else
@@ -230,7 +224,6 @@
 
         </div>
 
-        <!-- BOTÓN -->
         <div class="idx-btn-center">
             <a href="#" class="idx-btn">
                 Ver todos los proyectos <i class="fas fa-arrow-right"></i>
@@ -242,7 +235,6 @@
 
 @endif
 
-<!-- End Pricing One -->
 @include('sections.contact')
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -253,16 +245,13 @@ new Swiper('.bannerSwiper', {
     loop: true,
     speed: 900,
     effect: 'fade',
-
     fadeEffect: {
         crossFade: true
     },
-
     autoplay: {
         delay: 5000,
         disableOnInteraction: false
     },
-
     pagination: {
         el: '.swiper-pagination',
         clickable: true,

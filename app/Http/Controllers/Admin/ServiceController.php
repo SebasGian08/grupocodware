@@ -23,8 +23,10 @@ class ServiceController extends Controller
 
     private function uploadImage($file, $folder = 'services')
     {
-        $path = $file->store($folder, 'public'); 
-        return $path; 
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        $destinationPath = base_path('uploads/' . $folder);
+        $file->move($destinationPath, $fileName);
+        return 'uploads/' . $folder . '/' . $fileName;
     }
 
     public function store(Request $request)

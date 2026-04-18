@@ -26,7 +26,10 @@ class PortafolioController extends Controller
 
     private function uploadImage($file, $folder = 'portafolios')
     {
-        return $file->store($folder, 'public');
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        $destinationPath = base_path('uploads/' . $folder);
+        $file->move($destinationPath, $fileName);
+        return 'uploads/' . $folder . '/' . $fileName;
     }
 
     public function store(Request $request)

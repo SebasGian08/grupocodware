@@ -52,36 +52,35 @@
 
                                 </div>
 
-                                <!-- DERECHA -->
                                 <div class="col-md-6">
 
-                                    <!-- PORTADA -->
                                     <label>Portada</label>
                                     @if($service->portada)
                                     <div class="mb-2 text-center">
-                                        <img src="{{ asset('storage/'.$service->portada) }}"
-                                            class="img-fluid rounded shadow" style="max-height:120px;">
+                                        {{-- Eliminado 'storage/' --}}
+                                        <img src="{{ asset($service->portada) }}" class="img-fluid rounded shadow"
+                                            style="max-height:120px;">
                                         <div class="small text-muted">Actual</div>
                                     </div>
                                     @endif
                                     <input type="file" name="portada" class="form-control mb-3">
 
-                                    <!-- IMAGEN PORTADA -->
                                     <label>Imagen Portada</label>
                                     @if($service->imagen_portada)
                                     <div class="mb-2 text-center">
-                                        <img src="{{ asset('storage/'.$service->imagen_portada) }}"
+                                        {{-- Eliminado 'storage/' --}}
+                                        <img src="{{ asset($service->imagen_portada) }}"
                                             class="img-fluid rounded shadow" style="max-height:120px;">
                                         <div class="small text-muted">Actual</div>
                                     </div>
                                     @endif
                                     <input type="file" name="imagen_portada" class="form-control mb-3">
 
-                                    <!-- IMAGEN REFERENCIAL -->
                                     <label>Imagen Referencial</label>
                                     @if($service->imagen_referencial)
                                     <div class="mb-2 text-center">
-                                        <img src="{{ asset('storage/'.$service->imagen_referencial) }}"
+                                        {{-- Eliminado 'storage/' --}}
+                                        <img src="{{ asset($service->imagen_referencial) }}"
                                             class="img-fluid rounded shadow" style="max-height:120px;">
                                         <div class="small text-muted">Actual</div>
                                     </div>
